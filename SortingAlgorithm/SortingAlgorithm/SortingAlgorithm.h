@@ -8,7 +8,7 @@ namespace SortingAlgorithm {
 	public ref class Sort
 	{
 	public:
-		virtual void sort(int *, int)=0;
+		virtual void sort(int *, int);
 	};
 	public ref class MergeSort: public Sort
 	{
@@ -23,6 +23,14 @@ namespace SortingAlgorithm {
 	public:
 		QuickSort();
 		~QuickSort();
+		void sort(int *, int) override;
+	};
+
+	public ref class InsertionSort : public Sort
+	{
+	public:
+		InsertionSort();
+		~InsertionSort();
 		void sort(int *, int) override;
 	};
 }
