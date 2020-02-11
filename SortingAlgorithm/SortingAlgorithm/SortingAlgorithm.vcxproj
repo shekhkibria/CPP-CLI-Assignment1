@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="MergeSortHelper.cpp" />
+    <ClCompile Include="QuickSortHelper.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
