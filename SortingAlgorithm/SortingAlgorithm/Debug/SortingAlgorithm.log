@@ -1,4 +1,11 @@
-﻿  SortingAlgorithm.cpp
+﻿  AssemblyInfo.cpp
+  MergeSortHelper.cpp
+  QuickSortHelper.cpp
+  SortingAlgorithm.cpp
+c:\users\kibria\documents\cpp-cli-assignment1\sortingalgorithm\sortingalgorithm\SortingAlgorithm.h(9): warning C4570: 'SortingAlgorithm::Sort': is not explicitly declared as abstract but has abstract functions
+  c:\users\kibria\documents\cpp-cli-assignment1\sortingalgorithm\sortingalgorithm\SortingAlgorithm.h(9): note: 'void SortingAlgorithm::Sort::sort(int *,int)': is abstract
+  c:\users\kibria\documents\cpp-cli-assignment1\sortingalgorithm\sortingalgorithm\SortingAlgorithm.h(11): note: see declaration of 'SortingAlgorithm::Sort::sort'
+  Generating Code...
   AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   SortingAlgorithm.vcxproj -> C:\Users\kibria\Documents\CPP-CLI-Assignment1\SortingAlgorithm\Debug\SortingAlgorithm.dll
   SortingAlgorithm.vcxproj -> C:\Users\kibria\Documents\CPP-CLI-Assignment1\SortingAlgorithm\Debug\SortingAlgorithm.pdb (Partial PDB)
