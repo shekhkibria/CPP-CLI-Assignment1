@@ -6,8 +6,11 @@ using namespace System;
 
 namespace SortingAlgorithm {
 
-	public ref class Class1
+	public ref class MergeSort
 	{
-		// TODO: Add your methods for this class here.
+	public:
+		MergeSort();
+		~MergeSort();
+		void sort(int *, int);
 	};
 }
