@@ -17,7 +17,11 @@ void FileInputOutput::readFile(int arr[])
 	String^ line;
 	IO::StreamReader^ din = IO::File::OpenText(m_inputFileName);
 	while ((line = din->ReadLine()) != nullptr)
-		Int32::TryParse(line, arr[size++]);
+	{
+		// If it's an integer then it will be stored to the corresponding position
+		if (Int32::TryParse(line, arr[size]))
+			size++;
+	}
 	din->Close();
 }
 

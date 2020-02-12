@@ -8,14 +8,14 @@ namespace SortingAlgorithm {
 	public ref class Sort
 	{
 	public:
-		virtual void sort(int *, int);
+		virtual void sort(int arr[], int size);
 	};
 	public ref class MergeSort: public Sort
 	{
 	public:
 		MergeSort();
 		~MergeSort();
-		void sort(int *, int) override;
+		void sort(int arr[], int size) override;
 	};
 
 	public ref class QuickSort: public Sort
@@ -23,7 +23,7 @@ namespace SortingAlgorithm {
 	public:
 		QuickSort();
 		~QuickSort();
-		void sort(int *, int) override;
+		void sort(int arr[], int size) override;
 	};
 
 	public ref class InsertionSort : public Sort
@@ -31,6 +31,14 @@ namespace SortingAlgorithm {
 	public:
 		InsertionSort();
 		~InsertionSort();
-		void sort(int *, int) override;
+		void sort(int arr[], int size) override;
+	};
+
+	public ref class BubbleSort : public Sort
+	{
+	public:
+		BubbleSort();
+		~BubbleSort();
+		void sort(int arr[], int size) override;
 	};
 }

@@ -5,7 +5,6 @@
 
 using namespace SortingAlgorithm;
 
-
 static void swap(int *xp, int *yp)
 {
 	int temp = *xp;
@@ -13,7 +12,7 @@ static void swap(int *xp, int *yp)
 	*yp = temp;
 }
 
-// A function to implement bubble sort  
+// A function to implement bubble sort
 void Sort::sort(int arr[], int n)
 {
 	int i, j;
@@ -25,7 +24,20 @@ void Sort::sort(int arr[], int n)
 				swap(&arr[j], &arr[j + 1]);
 }
 
+BubbleSort::BubbleSort()
+{
+	std::cout << "BubbleSort constructor" << std::endl;
+}
 
+BubbleSort::~BubbleSort()
+{
+	std::cout << "BubbleSort destructor" << std::endl;
+}
+
+void BubbleSort::sort(int arr[],int size)
+{
+	Sort::sort(arr, size);
+}
 
 MergeSort::MergeSort()
 {
@@ -47,8 +59,6 @@ void MergeSort::sort(int *numbers, int size)
 	mergeSort(numbers, 0, size - 1);
 }
 
-
-
 QuickSort::QuickSort()
 {
 	std::cout << "Quick sort constructor" << std::endl;
@@ -58,7 +68,6 @@ QuickSort::~QuickSort()
 {
 	std::cout << "Quick sort destructor" << std::endl;
 }
-
 
 /* The main function that implements QuickSort
 arr[] --> Array to be sorted,
@@ -72,7 +81,6 @@ void QuickSort::sort(int *numbers, int size)
 	quickSort(numbers, 0, size - 1);
 }
 
-
 InsertionSort::InsertionSort()
 {
 	std::cout << "InsertionSort sort constructor" << std::endl;
@@ -82,7 +90,6 @@ InsertionSort::~InsertionSort()
 {
 	std::cout << "InsertionSort sort destructor" << std::endl;
 }
-
 
 /* Function to sort an array using insertion sort*/
 void insertionSort(int arr[], int n);

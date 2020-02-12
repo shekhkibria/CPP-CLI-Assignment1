@@ -10,60 +10,76 @@
 using namespace System;
 using namespace SortingAlgorithm;
 
-int arr[10000],size;
 
 class SortingFromFile
 {
-	gcroot<Sort^> m_sort;
-	FileInputOutput* m_finout;
+	gcroot<Sort^> sorting;
+	FileInputOutput* fileInputOutput;
+	int *arr, size;
+
 public:
 	SortingFromFile(String^ inFileName, String^ outFileName, Sort^ sort)
 	{
-		this->m_finout = new FileInputOutput(inFileName, outFileName);
-		this->m_sort = sort;
+		this->fileInputOutput = new FileInputOutput(inFileName, outFileName);
+		this->sorting = sort;
+		this->arr = new int[1000];
 	}
 	
 	~SortingFromFile()
 	{
-		delete m_finout;
+		delete fileInputOutput;
+		delete[] arr;
 		std::cout << "Deleted native pointer upon calling this destructor" << std::endl;
+	}
+
+	void readFile()
+	{
+		fileInputOutput->readFile(arr);
+
+		// Size of the array
+		size = fileInputOutput->getNumberOfElements();
+	}
+
+	void writeFile()
+	{
+		fileInputOutput->writeFile(arr);
+	}
+
+	void printArray()
+	{
+		for (int i = 0; i < size; i++)
+		{
+			std::cout << arr[i] << std::endl;
+		}
 	}
 
 	void sort()
 	{
-
-		std::ifstream ifs;
-		ifs.open("input.txt");
-
-		int number;
-		while (ifs >> number)
-			std::cout << number << std::endl;
-		ifs.close();
-		m_finout->readFile(arr);
-		size = m_finout->getNumberOfElements(); //Size of the array
-
 		std::cout << "Before sort:" << std::endl;
-		for (int i = 0; i < 12; i++)
-		{
-			std::cout << arr[i] << std::endl;
-		}
+		printArray();
 
-		m_sort->sort(arr, size);
-		m_finout->writeFile(arr);
+		sorting->sort(arr, size);
+
+		std::cout << "After sort:" << std::endl;
+		printArray();
 	}
 };
 int main()
 {
-	String^ inputFileName = "input.txt", ^outputFileName = "output.txt";
-	auto sortingFromFIle = new SortingFromFile(inputFileName, outputFileName, gcnew QuickSort());
+	String^ inputFileName , ^outputFileName ;
+
+	Console::WriteLine("Give input file path:");
+	inputFileName = Console::ReadLine();
+
+	Console::WriteLine("Give output file path:");
+	outputFileName = Console::ReadLine();
+
+	auto sortingFromFIle = new SortingFromFile(inputFileName, outputFileName, gcnew Sort());
+
+	sortingFromFIle->readFile();
 	sortingFromFIle->sort();
-
-	std::cout << "After sort:" << std::endl;
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << arr[i] << std::endl;
-	}
-
+	sortingFromFIle->writeFile();
+	
 	delete sortingFromFIle;
 	std::cin.get();
     return 0;
