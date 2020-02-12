@@ -6,3 +6,12 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+
+**/Debug/
+**/[Rr]elease/
+SortingAlgorithm/[Dd]ebug/
+SortingAlgorithm/[Rr]elease/
+SortingAlgorithm/Sorting Console Application/[Dd]ebug/
+SortingAlgorithm/Sorting Console Application/[Rr]elease/
+SortingAlgorithm/SortingAlgorithm/[Dd]ebug/
+SortingAlgorithm/SortingAlgorithm/[Rr]elease/
