@@ -1,4 +1,6 @@
-﻿  SortingAlgorithm.cpp
+﻿  InsertionSortHelper.cpp
+  SortingAlgorithm.cpp
+  Generating Code...
   AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   SortingAlgorithm.vcxproj -> C:\Users\kibria\Documents\CPP-CLI-Assignment1\SortingAlgorithm\Debug\SortingAlgorithm.dll
   SortingAlgorithm.vcxproj -> C:\Users\kibria\Documents\CPP-CLI-Assignment1\SortingAlgorithm\Debug\SortingAlgorithm.pdb (Partial PDB)
