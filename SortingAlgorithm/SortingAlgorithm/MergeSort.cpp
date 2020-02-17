@@ -1,8 +1,13 @@
 #include "stdafx.h"
+#include "SortingAlgorithm.h"
+#include <iostream>
+
+using namespace SortingAlgorithm;
+
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
 // Second subarray is arr[m+1..r] 
-void merge(int arr[], int l, int m, int r)
+void merge(int *arr, int l, int m, int r)
 {
 	int i, j, k;
 	int n1 = m - l + 1;
@@ -54,13 +59,13 @@ void merge(int arr[], int l, int m, int r)
 		k++;
 	}
 
-	//native array which should be explicitly deleted
+	// Native array which should be explicitly deleted
 	delete[] L, R;
 }
 
 /* l is for left index and r is right index of the
 sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r)
+void mergeSort(int *arr, int l, int r)
 {
 	if (l < r)
 	{
@@ -73,4 +78,20 @@ void mergeSort(int arr[], int l, int r)
 		mergeSort(arr, m + 1, r);
 		merge(arr, l, m, r);
 	}
+}
+
+MergeSort::MergeSort()
+{
+	std::cout << "Merge sort constructor" << std::endl;
+}
+
+MergeSort::~MergeSort()
+{
+	std::cout << "Merge sort destructor" << std::endl;
+}
+
+// arr is the pointer to an array to be sorted and size is the total size of the array
+void MergeSort::sort(int *arr, int size)
+{
+	mergeSort(arr, 0, size - 1);
 }

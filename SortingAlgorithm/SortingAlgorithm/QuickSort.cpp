@@ -1,4 +1,8 @@
 #include "stdafx.h"
+#include "SortingAlgorithm.h"
+#include <iostream>
+
+using namespace SortingAlgorithm;
 
 // A utility function to swap two elements 
 void swap(int* a, int* b)
@@ -13,7 +17,7 @@ the pivot element at its correct position in sorted
 array, and places all smaller (smaller than pivot)
 to left of pivot and all greater elements to right
 of pivot */
-int partition(int arr[], int low, int high)
+int partition(int *arr, int low, int high)
 {
 	int pivot = arr[high];    // pivot 
 	int i = (low - 1);  // Index of smaller element 
@@ -36,7 +40,7 @@ int partition(int arr[], int low, int high)
 arr[] --> Array to be sorted,
 low  --> Starting index,
 high  --> Ending index */
-void quickSort(int arr[], int low, int high)
+void quickSort(int *arr, int low, int high)
 {
 	if (low < high)
 	{
@@ -49,4 +53,20 @@ void quickSort(int arr[], int low, int high)
 		quickSort(arr, low, pi - 1);
 		quickSort(arr, pi + 1, high);
 	}
+}
+
+QuickSort::QuickSort()
+{
+	std::cout << "Quick sort constructor" << std::endl;
+}
+
+QuickSort::~QuickSort()
+{
+	std::cout << "Quick sort destructor" << std::endl;
+}
+
+// arr is the pointer to an array to be sorted and size is the total size of the array
+void QuickSort::sort(int *arr, int size)
+{
+	quickSort(arr, 0, size - 1);
 }

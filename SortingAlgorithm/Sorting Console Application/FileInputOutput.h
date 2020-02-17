@@ -1,18 +1,20 @@
 #pragma once
 #include<vcclr.h>
+#include<vector>
+#include<string>
+
+using namespace std;
 using namespace System;
+
 class FileInputOutput
 {
-	gcroot<String^> m_inputFileName;
-	gcroot<String^> m_outputFileName;
-	int size = 0;
+	string inputFileName;
+	string outputFileName;
 public:
-	FileInputOutput(String^ inFileName, String^ outFileName);
+	FileInputOutput(string inputFileName, string outputFileName);
 
-	int getNumberOfElements();
+	void readFile(std::vector<int> &arr);
 
-	void readFile(int arr[]);
-
-	void writeFile(int arr[]);
+	void writeFile(std::vector<int> &arr);
 
 };

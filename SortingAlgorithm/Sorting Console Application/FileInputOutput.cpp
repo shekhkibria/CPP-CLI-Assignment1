@@ -1,34 +1,39 @@
 #include "stdafx.h"
+#include <fstream>
 #include "FileInputOutput.h"
 
 
-FileInputOutput::FileInputOutput(String^ inFileName, String^ outFileName)
+FileInputOutput::FileInputOutput(string inputFileName, string outputFileName)
 {
-	this->m_inputFileName = inFileName;
-	this->m_outputFileName = outFileName;
-}
-int FileInputOutput::getNumberOfElements()
-{
-	return size;
+	this->inputFileName = inputFileName;
+	this->outputFileName = outputFileName;
 }
 
-void FileInputOutput::readFile(int arr[])
+void FileInputOutput::readFile(std::vector<int> &arr)
 {
 	String^ line;
-	IO::StreamReader^ din = IO::File::OpenText(m_inputFileName);
-	while ((line = din->ReadLine()) != nullptr)
+	//IO::StreamReader^ din = IO::File::OpenText(inputFileName);
+
+	ifstream inputFile;
+	inputFile.open(inputFileName);
+	int number;
+	while (inputFile>>number)
 	{
 		// If it's an integer then it will be stored to the corresponding position
-		if (Int32::TryParse(line, arr[size]))
-			size++;
+
+		
+		/*if (Int32::TryParse(line, arr[size]))
+			size++;*/
+		arr.push_back(number);
 	}
-	din->Close();
+	inputFile.close();
 }
 
-void FileInputOutput::writeFile(int arr[])
+void FileInputOutput::writeFile(std::vector<int> &arr)
 {
-	IO::StreamWriter ^ dout = IO::File::CreateText(m_outputFileName);
-	for (int i = 0; i < size; i++)
-		dout->WriteLine(arr[i]);
-	dout->Close();
+	//IO::StreamWriter ^ dout = IO::File::CreateText(m_outputFileName);
+	ofstream outputFile(outputFileName);
+	for (int i = 0; i < arr.size(); i++)
+		outputFile << arr[i] << endl;
+	outputFile.close();
 }
